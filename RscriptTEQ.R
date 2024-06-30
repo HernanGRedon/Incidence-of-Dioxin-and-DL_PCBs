@@ -401,6 +401,26 @@ Incidenceval$Year  <- Incidenceval$Year + 18
 Incidenceval
 
 
+
+round(aggregate(incidenceper100kmean  ~ Year , data = Incidenceval, mean),digits = 0)
+
+resultado <- Incidenceval %>%
+  group_by(Year,clusterA) %>%
+  summarise(TotalValue = mean(incidenceper100kmean))
+
+resultado$TotalValue <- round(resultado$TotalValue,0)
+clipr::write_clip(resultado)
+
+resultado <- Incidenceval %>%
+  group_by(Year,ClusterB) %>%
+  summarise(TotalValue = mean(incidenceper100kmean))
+
+resultado$TotalValue <- round(resultado$TotalValue,0)
+clipr::write_clip(resultado)
+
+####################################################
+
+
 #plotting by region and country
 
 WHO_regions <- readxl::read_xlsx("Copy of FERG2_Final sub-regional clusters.xlsx",sheet = 1)
