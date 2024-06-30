@@ -9,7 +9,7 @@ plan(multisession(workers = 7))
 
 minconc <- 0
 maxconc <- 32
-step <- 0.01
+step <- 0.1
 
 adiposeconc <- future_sapply(X = seq(minconc,maxconc,step),FUN = function(i) {
   dioxinConcCountry <- 10
@@ -82,7 +82,7 @@ adiposeconc <- future_sapply(X = seq(minconc,maxconc,step),FUN = function(i) {
   output <- ode(y = state, times = times, func = modelpbpk, parms = params, atol = 1e-6, method = "euler")
   output <- as.data.frame(output)
   
-  solution <- output["420000",]
+  solution <- output["300000",]
   solution <- solution$Ca
   return(solution)
 })
@@ -93,7 +93,7 @@ adiposeconc <- as.data.frame(adiposeconc)
 
 adiposeconc$value <- seq(minconc,maxconc,step)
 
-writexl::write_xlsx(adiposeconc, "Adiposeconc.xlsx")
+writexl::write_xlsx(adiposeconc, "Adiposeconc25years.xlsx")
 
 
 ##############################################################################################################
