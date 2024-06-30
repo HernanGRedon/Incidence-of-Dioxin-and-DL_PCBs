@@ -146,7 +146,7 @@ M2
 #mcmc fitting procedure
 model_fitting = ma_continuous_fit(D =  M2[,1],Y = M2[,2],fit_type = "mcmc",BMR_TYPE = "sd",BMR = 1.1,samples = 100000,threads = 7,burnin = 10000)
 
-print(summary(model_fitting))
+summary(model_fitting)
 
 plot(model_fitting)
 #the model with the highest weight is Exponential-Aerts Distribution: Log-Normal (0.336)
