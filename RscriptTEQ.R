@@ -146,15 +146,12 @@ M2[,4] <- as.numeric(STDDev) #standard deviation
 M2
 
 #mcmc fitting procedure
-#model_fitting = ma_continuous_fit(D =  M2[,1],Y = M2[,2],fit_type = "mcmc",BMR_TYPE = "sd",BMR = 1.1,samples = 100000,threads = 7,burnin = 10000)
+model_fitting = ma_continuous_fit(D =  M2[,1],Y = M2[,2],fit_type = "mcmc",BMR_TYPE = "sd",BMR = 1.1,samples = 100000,threads = 7,burnin = 10000)
 
-#print(summary(model_fitting))
+summary(model_fitting)
 
-#plot(model_fitting)
 
 #the model with the highest weight is Exponential-Aerts Distribution: Log-Normal (0.336)
-
-#Model selection for smoking, alcohol and abstinence days below 2 days, obese
 
 #MCMC
 model <- single_continuous_fit(M2[,1,drop=FALSE], M2[,2:4], BMR_TYPE="sd", BMR=1.1, ewald = TRUE,
@@ -165,7 +162,7 @@ print(summary(model))
 
 #plot(model)
 
-rm(list = setdiff(ls(), c("resultstable", "model")))
+rm(list = setdiff(ls(), c("model","adiposeconc")))
 
 ######################################################################################################################################################
 
