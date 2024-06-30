@@ -421,6 +421,9 @@ WHO_regions <- readxl::read_xlsx("Copy of FERG2_Final sub-regional clusters.xlsx
 #Countries
 ggplot(Incidenceval, aes(x = as.factor(Year), y = incidenceper100kmean, fill = Location)) + 
   geom_col(position = position_dodge(width = 0.9), alpha = 0.9) + 
+  geom_errorbar(aes(ymin = incidenceper100k2.5, ymax = incidenceper100k97.5), 
+                position = position_dodge2(preserve = "single", width = 0.9), 
+                alpha = 0.9, width = 0.9) +
   labs(title = "Mean by Region over Time (per 100,000 18 year old men)",
        x = "Year",
        y = "Mean Incidence") +
