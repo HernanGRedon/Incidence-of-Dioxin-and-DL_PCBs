@@ -9,7 +9,7 @@ plan(multisession(workers = 7))
 
 minconc <- 0
 maxconc <- 32
-step <- 0.1
+step <- 0.01
 
 adiposeconc <- future_sapply(X = seq(minconc,maxconc,step),FUN = function(i) {
   dioxinConcCountry <- 10
