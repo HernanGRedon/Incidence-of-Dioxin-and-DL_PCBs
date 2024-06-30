@@ -354,22 +354,12 @@ colnames(serumconc) <- c("Location","Year","Mean","clusterA","ClusterB")
 # packages
 library(tidyverse)
 library(mc2d)
-library(ggplot2)
+library(rriskDistributions)
 # settings
 set.seed(123)
 
-mean_median_ci <-
-  function(x) {
-    c(mean = mean(x),
-      median = median(x),
-      quantile(x, probs = c(0.025, 0.975)))
-  }
 
-# fit a distribution through the percentiles of common sperm concentration
-
-library(rriskDistributions)
-
-#fitting values for a full Male population
+#fitting values for a full Male population distribution
 fittingval <- get.lnorm.par(p = c(0.025,0.05,0.1,0.24,0.5,0.75,0.9,0.95,0.975),
                             q = c(4,9,17,36,64,100,192,192,237))
 
@@ -407,7 +397,7 @@ for(i in 1:nrow(differenceofspermconcen)){
 
 Incidenceval$usualincidence <- differenceofspermconcen$population * plnorm(15, meanlog = fittingval[1], sd = fittingval[2], lower.tail = T) 
 
-
+Incidenceval$Year  <- Incidenceval$Year + 18
 Incidenceval
 
 
@@ -433,7 +423,7 @@ ggplot(Incidenceval, aes(x = as.factor(Year), y = incidenceper100kmean, fill = L
 ##################################################################################################
 # Plotting Incidence
 
-Incidenceval$Year  <- Incidenceval$Year + 18
+
 #Africa
 Incidenceval2 <- Incidenceval 
 
