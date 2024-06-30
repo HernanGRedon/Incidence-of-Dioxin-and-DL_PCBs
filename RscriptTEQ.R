@@ -165,14 +165,6 @@ print(summary(model))
 rm(list = setdiff(ls(), c("model","adiposeconc")))
 
 ######################################################################################################################################################
-
-#match the breast milk data with the adipose concentration data
-
-#Change back to adiposeconc.xlsx
-adiposeconc <- readxl::read_xlsx("Adiposeconc30years.xlsx")
-
-
-###############################################################
 # load concentration data
 concentrationdata <-  readxl::read_xlsx("ferg2-CTTF-dioxin-TEQ-Sciensanoformat.xlsx",sheet = 1)
 
