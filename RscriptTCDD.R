@@ -163,12 +163,6 @@ rm(list = setdiff(ls(), c("adiposeconc", "model")))
 
 ######################################################################################################################################################
 
-#match the breast milk data with the adipose concentration data
-
-adiposeconc <- readxl::read_xlsx("Adiposeconc.xlsx")
-
-
-###############################################################
 # load concentration data
 concentrationdata <-  readxl::read_xlsx("ferg2-CTTF-dioxin-TEQ-Sciensanoformat.xlsx",sheet = 1)
 
@@ -196,7 +190,6 @@ for (i in 1:nrow(concentrationdata_bycountry)) {
     filter(diff == min(diff)) %>%
     select(value)
   
-  print(a)
   concentrationdata_bycountry$estimatedexp[i] <- as.numeric(a)
   
   
