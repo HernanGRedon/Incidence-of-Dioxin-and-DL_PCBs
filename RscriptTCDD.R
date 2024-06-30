@@ -176,7 +176,7 @@ concentrationdata_bycountry <- concentrationdata %>% filter(SUBSTANCE == "2,3,7,
 concentrationdata_bycountry <- concentrationdata_bycountry %>% dplyr::select("REF_LOCATION","REF_YEAR_END","VALUE_MEAN_TEQ")
 
 
-# backcalculating the dietary exposure
+#Calculating dietary exposure 
 concentrationdata_bycountry$estimatedexp <- c()
 
 for (i in 1:nrow(concentrationdata_bycountry)) {
