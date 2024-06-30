@@ -179,7 +179,7 @@ concentrationdata_bycountry <- concentrationdata %>%
   summarise(exposure = sum(VALUE_MEAN_TEQ))
 
 
-# backcalculating the dietary exposure
+# Calculating dietary exposure
 concentrationdata_bycountry$estimatedexp <- c()
 
 for (i in 1:nrow(concentrationdata_bycountry)) {
@@ -193,7 +193,6 @@ for (i in 1:nrow(concentrationdata_bycountry)) {
     filter(diff == min(diff)) %>%
     select(value)
   
-  print(a)
   concentrationdata_bycountry$estimatedexp[i] <- as.numeric(a)
   
   
