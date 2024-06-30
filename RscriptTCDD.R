@@ -97,7 +97,7 @@ writexl::write_xlsx(adiposeconc, "Adiposeconc25years.xlsx")
 
 
 ##############################################################################################################
-
+adiposeconc <- readxl::read_xlsx("Adiposeconc25years.xlsx")
 # We used the N values as input for the TOXICR library. 
 Nvalue <- 33
 
@@ -397,7 +397,21 @@ Incidenceval$usualincidence <- differenceofspermconcen$population * plnorm(15, m
 #Incidence per 100.000 18 year old male per country
 Incidenceval
 
+round(aggregate(incidenceper100kmean  ~ Year , data = Incidenceval, mean),digits = 0)
 
+resultado <- Incidenceval %>%
+  group_by(Year,clusterA) %>%
+  summarise(TotalValue = mean(incidenceper100kmean))
+
+resultado$TotalValue <- round(resultado$TotalValue,0)
+clipr::write_clip(resultado)
+
+resultado <- Incidenceval %>%
+  group_by(Year,ClusterB) %>%
+  summarise(TotalValue = mean(incidenceper100kmean))
+
+resultado$TotalValue <- round(resultado$TotalValue,0)
+clipr::write_clip(resultado)
 #plotting by region and country
 
 WHO_regions <- readxl::read_xlsx("Copy of FERG2_Final sub-regional clusters.xlsx",sheet = 1)
