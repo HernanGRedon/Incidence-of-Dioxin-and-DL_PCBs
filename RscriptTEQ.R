@@ -154,7 +154,7 @@ summary(model_fitting)
 #the model with the highest weight is Exponential-Aerts Distribution: Log-Normal (0.274)
 
 #MCMC
-model <- single_continuous_fit(M2[,1,drop=FALSE], M2[,2:4], BMR_TYPE="sd", BMR=1.1, ewald = TRUE,
+model <- single_continuous_fit(D = M2[,1,drop=FALSE],Y = M2[,2:4], BMR_TYPE="sd", BMR=1.1, ewald = TRUE,
                                distribution = "lognormal",fit_type="mcmc",model_type = "exp-aerts",samples = 1000000,threads = 7,burnin = 100000)
 
 plot(model)
@@ -305,7 +305,7 @@ for( i in 1:nrow(concentrationdata_bycountry)) {
   
   
   model_plotting <- function(a_2.5, b_2.5, c_2.5, d_2.5, x) {
-    yvalue <- a_2.5 * (1 + ((c_2.5 - 1) * (1 - exp(-b_2.5 * (x^d_2.5)))))
+    yvalue <- a_2.5 * (1 + (c_2.5 - 1) * (1 - exp(-b_2.5 * (x^d_2.5))))
     return(yvalue)
   }
   
