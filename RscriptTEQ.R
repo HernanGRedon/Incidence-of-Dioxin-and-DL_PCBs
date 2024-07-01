@@ -99,7 +99,7 @@ writexl::write_xlsx(adiposeconc, "Adiposeconc25years.xlsx")
 
 
 ##############################################################################################################
-
+adiposeconc <- readxl::read_xlsx("Adiposeconc25years.xlsx")
 # We used the N values as input for the TOXICR library. 
 Nvalue <-33
 
