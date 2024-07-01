@@ -391,6 +391,7 @@ for(i in 1:nrow(differenceofspermconcen)){
   pnormal97.5
   Incidenceval[i,7] <- differenceofspermconcen$population[i] * pnormal97.5
 }
+
 Incidenceval$Year  <- Incidenceval$Year + 18
 Incidenceval$usualincidence <- differenceofspermconcen$population * plnorm(15, meanlog = fittingval[1], sd = fittingval[2], lower.tail = T) 
 
