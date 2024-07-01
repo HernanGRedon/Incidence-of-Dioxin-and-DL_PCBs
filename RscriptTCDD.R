@@ -397,3 +397,10 @@ Incidenceval$usualincidence <- differenceofspermconcen$population * plnorm(15, m
 
 #Incidence per 100.000 18 year old male per country
 Incidenceval
+
+Incidenceval$incidenceper100kmean <- as.numeric(Incidenceval$incidenceper100kmean)
+Incidenceval$incidenceper100k2.5 <- as.numeric(Incidenceval$incidenceper100k2.5)
+Incidenceval$incidenceper100k97.5 <- as.numeric(Incidenceval$incidenceper100k97.5)
+
+
+writexl::write_xlsx(Incidenceval, "IncidencevalTCDD.xlsx")
