@@ -165,12 +165,12 @@ rm(list = setdiff(ls(), c("model","adiposeconc")))
 
 ######################################################################################################################################################
 # load concentration data
-concentrationdata <-  readxl::read_xlsx("ferg2-CTTF-dioxin-TEQ-Sciensanoformat.xlsx",sheet = 1)
+concentrationdata <-  readxl::read_xlsx("ferg2-CTTF-dioxin-TEQ-20240306.xlsx",sheet = 1)
 
 #selection of columns
 library(dplyr)
 library(tidyr)
-concentrationdata <- concentrationdata %>% dplyr::select(REF_YEAR_END,REF_LOCATION,SUBSTANCE,VALUE_MEAN_TEQ,VALUE_P000_TEQ,VALUE_P100_TEQ)
+concentrationdata <- concentrationdata %>% dplyr::select(REF_YEAR_END,REF_LOCATION,SUBSTANCE,VALUE_MEAN,VALUE_P000,VALUE_P100)
 
 #total_TEQ
 concentrationdata_bycountry <- concentrationdata %>% 
