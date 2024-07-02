@@ -295,7 +295,7 @@ for( i in 1:nrow(concentrationdata_bycountry)) {
   c <- c[4]
   d <- d[5]
   
-  a_2.5 <- as.numeric((a$PARM_samples.1))   #as.numeric(exp(a$PARM_samples.1))
+  a_2.5 <- as.numeric(a$PARM_samples.1)  
   b_2.5 <- as.numeric(b$PARM_samples.2)
   c_2.5 <- as.numeric(c$PARM_samples.3)
   d_2.5 <- as.numeric(d$PARM_samples.4)
