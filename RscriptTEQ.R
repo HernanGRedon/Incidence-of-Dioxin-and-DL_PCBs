@@ -298,7 +298,7 @@ for( i in 1:nrow(concentrationdata_bycountry)) {
   c <- c[4]
   d <- d[5]
   
-  a_2.5 <- as.numeric(exp(a$PARM_samples.1))
+  a_2.5 <- as.numeric((a$PARM_samples.1))   #as.numeric(exp(a$PARM_samples.1))
   b_2.5 <- as.numeric(b$PARM_samples.2)
   c_2.5 <- as.numeric(c$PARM_samples.3)
   d_2.5 <- as.numeric(d$PARM_samples.4)
@@ -317,14 +317,14 @@ for( i in 1:nrow(concentrationdata_bycountry)) {
   # Calculate y values using vectorized function
   y_values_2.5 <- model_plotting(a_2.5, b_2.5, c_2.5, d_2.5, serumaverage8to9)
   
-  CI <- ci_fuction(y_values_2.5-a_2.5)
+  CI <- ci_fuction(exp(y_values_2.5)- exp(a_2.5))
   
   
   #print(y_values_97.5-a_97.5)
   
-  differenceofspermconcen <- rbind(differenceofspermconcen,c(mean(y_values_2.5-a_2.5),as.numeric(CI[1]),as.numeric(CI[2])))
+  differenceofspermconcen <- rbind(differenceofspermconcen,c(mean(exp(y_values_2.5)- exp(a_2.5)),as.numeric(CI[1]),as.numeric(CI[2])))
   serumconc <- rbind(serumconc,serumaverage8to9)
-  print(mean(y_values_2.5-a_2.5))
+  print(mean(exp(y_values_2.5)- exp(a_2.5)))
 }
 
 differenceofspermconcen <- cbind.data.frame(concentrationdata_bycountry[,c(1:2)],differenceofspermconcen)
