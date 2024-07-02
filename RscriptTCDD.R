@@ -164,16 +164,16 @@ rm(list = setdiff(ls(), c("adiposeconc", "model")))
 ######################################################################################################################################################
 
 # load concentration data
-concentrationdata <-  readxl::read_xlsx("ferg2-CTTF-dioxin-TEQ-Sciensanoformat.xlsx",sheet = 1)
+concentrationdata <-  readxl::read_xlsx("ferg2-CTTF-dioxin-TEQ-20240306.xlsx",sheet = 1)
 
 #selection of columns
 library(dplyr)
 library(tidyr)
-concentrationdata <- concentrationdata %>% dplyr::select(REF_YEAR_END,REF_LOCATION,SUBSTANCE,VALUE_MEAN_TEQ,VALUE_P000_TEQ,VALUE_P100_TEQ)
+concentrationdata <- concentrationdata %>% dplyr::select(REF_YEAR_END,REF_LOCATION,SUBSTANCE,VALUE_MEAN,VALUE_P000,VALUE_P100)
 
 #TCDD
 concentrationdata_bycountry <- concentrationdata %>% filter(SUBSTANCE == "2,3,7,8-TCDD")
-concentrationdata_bycountry <- concentrationdata_bycountry %>% dplyr::select("REF_LOCATION","REF_YEAR_END","VALUE_MEAN_TEQ")
+concentrationdata_bycountry <- concentrationdata_bycountry %>% dplyr::select("REF_LOCATION","REF_YEAR_END","VALUE_MEAN")
 
 
 #Calculating dietary exposure 
