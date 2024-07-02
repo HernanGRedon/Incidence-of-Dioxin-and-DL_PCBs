@@ -149,7 +149,7 @@ model_fitting = ma_continuous_fit(D =  M2[,1],Y = M2[,2],fit_type = "mcmc",BMR_T
 summary(model_fitting)
 
 plot(model_fitting)
-#the model with the highest weight is Exponential-Aerts Distribution: Log-Normal (0.274)
+#the model with the highest weight is Exponential-Aerts Distribution: Log-Normal (0.327)
 
 #MCMC
 model <- single_continuous_fit(M2[,1,drop=FALSE], M2[,2:4], BMR_TYPE="sd", BMR=1.1, ewald = TRUE,
