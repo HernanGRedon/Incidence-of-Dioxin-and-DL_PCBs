@@ -157,8 +157,7 @@ plot(model_fitting)
 model <- single_continuous_fit(D = M2[,1,drop=FALSE],Y = M2[,2:4], BMR_TYPE="sd", BMR=1.1, ewald = TRUE,
                                distribution = "lognormal",fit_type="mcmc",model_type = "exp-aerts",samples = 1000000,threads = 7,burnin = 100000)
 
-plot(model)
-print(summary(model))
+summary(model)
 
 #plot(model)
 
